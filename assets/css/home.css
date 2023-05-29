@@ -139,6 +139,11 @@ body {
   width: 75px;
 }
 
+#checkBox{
+  height: 20px;
+  width: 20px;
+}
+
 /* utility classes */
 .padding {
   padding-left: 20px;
