@@ -66,8 +66,8 @@ body {
   background-color: transparent;
 }
 
-#categorySection select option :hover{
-  background-color: transparent;
+#categorySection select option{
+  color: rgb(45, 45, 45);
 }
 
 

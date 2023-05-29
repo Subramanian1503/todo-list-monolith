@@ -1,6 +1,9 @@
 // Requiring the contact collection of mongo
 const Todo = require("../models/todo");
 
+// Defining this constant to have a number in miliseconds until which the controller need to wait for the DB action to complete
+const WAIT_TIME_FOR_DB_TO_PROCESS_CRUD_OPERATION = 100;
+
 // Controller methods to do CRUD operations
 
 // Creating a todo task from DB
@@ -28,8 +31,10 @@ module.exports.createTodo = function (request, response) {
   });
   console.log("Todo created successfuly");
 
-  // Rendering the home page
-  return response.redirect("/start");
+  setTimeout(function () {
+    // Rendering the home page
+    return response.redirect("/start");
+  }, WAIT_TIME_FOR_DB_TO_PROCESS_CRUD_OPERATION);
 };
 
 // Deleting a todo task from DB
@@ -48,8 +53,10 @@ module.exports.deleteTodo = function (request, response) {
     }
   }
 
-  // Rendering the home page
-  return response.redirect("/start");
+  setTimeout(function () {
+    // Rendering the home page
+    return response.redirect("/start");
+  }, 100);
 };
 
 /**
