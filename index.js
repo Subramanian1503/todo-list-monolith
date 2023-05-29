@@ -7,12 +7,21 @@ const todoApplication = express();
 // Initialising a port for the todo application
 const port = "8080";
 
+// Encode the urls using express middleware
+todoApplication.use(express.urlencoded());
+
+// Connect the mongo configuration to the server
+const db = require("./configs/mongoose");
+
 // Setup the view engine and package
-todoApplication.set('view engine', 'ejs');
-todoApplication.set('views', './views');
+todoApplication.set("view engine", "ejs");
+todoApplication.set("views", "./views");
+
+// Setup middleware to configure the static files for css
+todoApplication.use(express.static("assets"));
 
 // Create a middleware to configure the main router class
-const mainRouter = require('./routers');
+const mainRouter = require("./routers");
 todoApplication.use("/", mainRouter);
 
 // Make the application to listen to configured port
