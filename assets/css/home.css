@@ -1,0 +1,217 @@
+/* individual element appearence */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --heading-color: white;
+  --subheading-color: white;
+  --placeholder-color: white;
+}
+
+body {
+  height: 99.4vh;
+  width: 99.7vw;
+  background-image: url(../img/WDSdkq.jpg);
+  background-repeat: no-repeat;
+  box-shadow: 10px 10px 10px 10px rgba(100, 98, 98, 0.4);
+}
+
+#todoForm {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  border-radius: 30px;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+}
+
+::placeholder{
+  color: var(--placeholder-color);
+  opacity: 1;
+}
+
+#formHeading {
+  height: 100px;
+  width: inherit;
+  z-index: 2;
+  /* border: 2px solid black; */
+}
+
+#descriptionSection {
+  height: 100px;
+  /* border: 2px solid black; */
+}
+
+#descriptionSection input {
+  background-color: transparent;
+  /* border: 2px solid black; */
+}
+
+#categoryAndDueDateSection {
+  height: 100px;
+  width: inherit;
+  display: flex;
+}
+
+#categorySection {
+  width: 50%;
+  height: 100px;
+  /* border: 2px solid black; */
+}
+
+#categorySection select {
+  background-color: transparent;
+}
+
+#categorySection select option{
+  color: rgb(45, 45, 45);
+}
+
+
+#dueDateSection {
+  width: 50%;
+  height: 100px;
+  /* border: 2px solid black; */
+}
+
+#dueDateSection input {
+  background-color: transparent;
+}
+
+#categorySection select {
+  height: 60px;
+  font-size: larger;
+  border: 2px solid transparent;
+}
+
+#buttonSection {
+  height: 100px;
+  width: inherit;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+#todoListSection {
+  list-style: none;
+}
+
+#todoSection {
+  height: 50px;
+  width: inherit;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+#todoSection input {
+  position: absolute;
+  top: 10px;
+}
+
+#descriptionAndTargetDate {
+  display: flex;
+}
+
+#categoryDispaySection {
+  padding-right: 50px;
+  padding-top: 5px;
+}
+
+#categoryDispaySection button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-around;
+  height: 35px;
+  width: 75px;
+}
+
+#checkBox{
+  height: 20px;
+  width: 20px;
+}
+
+/* utility classes */
+.padding {
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-right: 20px;
+}
+
+.fontStyleSubHeaders {
+  font-family: sans-serif;
+  font-size: medium;
+  font-weight: 600;
+  color: var(--subheading-color);
+  text-transform: uppercase;
+}
+
+.fontStylePlaceHolders {
+  font-family: sans-serif;
+  font-size: medium;
+  color: var(--placeholder-color);
+}
+
+.fontStyleHeaders {
+  font-family: sans-serif;
+  font-size: xx-large;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+*:focus {
+  outline: none;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.arrangeColumnWise {
+  display: flex;
+  flex-direction: column;
+}
+
+.textArea {
+  border: none;
+  height: 60px;
+  font-size: larger;
+}
+
+.buttonIconStyle {
+  padding: 5px 10px 5px 5px;
+}
+
+.buttonTextStyle {
+  padding: 5px 10px 5px 5px;
+  font-weight: 500;
+  font-size: larger;
+  color: white;
+  border-radius: 12px;
+}
+
+.paddingForTodo {
+  padding-left: 50px;
+}
+
+.todoDescriptionFont {
+  font-size: medium;
+  color: rgb(42, 41, 41);
+  font-weight: 500;
+}

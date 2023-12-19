@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title%></title>
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
+    <script
+      src="https://kit.fontawesome.com/c1d8a530b7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="center">
+    <!-- Creating a form to get values for todo list -->
+    <form id="todoForm" autocomplete="off">
+      <!-- Heading for the todo list application -->
+      <div id="formHeading" class="center">
+        <h1 class="fontStyleHeaders">Todo Application</h1>
+      </div>
+      <!-- Description section for todo list application -->
+      <div
+        id="descriptionSection"
+        class="padding fontStyleSubHeaders arrangeColumnWise"
+      >
+        <label for="decription">Description</label>
+        <input
+          type="text"
+          name="description"
+          placeholder="What do you need to do ?"
+          class="textArea fontStylePlaceHolders"
+        />
+      </div>
+      <!-- Category and due date parent section -->
+      <div id="categoryAndDueDateSection">
+        <!-- Category section -->
+        <div
+          id="categorySection"
+          class="padding fontStyleSubHeaders arrangeColumnWise"
+        >
+          <!-- Label for category dropdown -->
+          <label for="category">Category</label>
+          <!-- Category dropdown -->
+          <select name="category" id="category" class="fontStylePlaceHolders">
+            <option value="NotProvided" selected="selected">
+              Choose a category
+            </option>
+            <option value="personal">Personal</option>
+            <option value="work">Work</option>
+            <option value="gym">Gym</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+        <!-- Due Date section -->
+        <div
+          id="dueDateSection"
+          class="padding fontStyleSubHeaders arrangeColumnWise"
+        >
+          <label for="targetedDate">Due Date</label>
+          <input
+            name="targetedDate"
+            id="targetedDate"
+            type="date"
+            class="fontStylePlaceHolders textArea"
+          />
+        </div>
+      </div>
+      <!-- button section -->
+      <div id="buttonSection">
+        <!-- Add task button -->
+        <button
+          type="submit"
+          class="buttonTextStyle fontStyleSubHeaders"
+          style="background-color: rgb(39, 38, 38)"
+          formaction="/todo/create"
+          formmethod="post"
+        >
+          <i class="fa-solid fa-plus buttonIconStyle"></i>
+          Add Task
+        </button>
+        <!-- Delete task button -->
+        <button
+          class="fontStyleSubHeaders buttonTextStyle"
+          style="background-color: red"
+          formaction="/todo/delete"
+          formmethod="get"
+          type="submit"
+        >
+          <i class="fa-solid fa-minus buttonIconStyle"></i>
+          Delete Task
+        </button>
+      </div>
+      <!-- list of todo list added -->
+      <ul id="todoListSection">
+        <% for(let todo of todoList){%>
+        <li>
+          <div id="todoSection" class="padding">
+            <div id="descriptionAndTargetDate">
+              <!-- CheckBox -->
+              <input
+                type="checkbox"
+                id="checkBox"
+                name="SelectedCheckBox"
+                value=<%= todo.id %>
+              />
+              <!-- Description and Target date -->
+              <div
+                id="todoDetailSection"
+                class="paddingForTodo fontStylePlaceHolders"
+              >
+                <!-- Description -->
+                <label for="checkBox"><%= todo.description %></label>
+                <!-- Target date section -->
+                <div id="targetDateSection">
+                  <i class="fa-regular fa-calendar" style="color: black"></i>
+                  <span><%= todo.targetedDate%></span>
+                </div>
+              </div>
+            </div>
+            <!-- Category -->
+            <div id="categoryDispaySection">
+              <% if(todo.category.toLowerCase() == "gym"){%>
+              <button style="background-color: blueviolet" type="button">
+                <%= todo.category%>
+              </button>
+              <%}%> <% if(todo.category.toLowerCase() == "school"){%>
+              <button style="background-color: orange" type="button">
+                <%= todo.category%>
+              </button>
+              <%}%> <% if(todo.category.toLowerCase() == "personal"){%>
+              <button style="background-color: purple" type="button">
+                <%= todo.category%>
+              </button>
+              <%}%> <% if(todo.category.toLowerCase() == "cleaning"){%>
+              <button style="background-color: blue" type="button">
+                <%= todo.category%>
+              </button>
+              <%}%> <% if(todo.category.toLowerCase() == "others"){%>
+              <button style="background-color: green" type="button">
+                <%= todo.category%>
+              </button>
+              <%}%> <% if(todo.category.toLowerCase() == "work"){%>
+              <button style="background-color: aqua" type="button">
+                <%= todo.category%>
+              </button>
+              <%}%>
+            </div>
+          </div>
+        </li>
+        <%}%>
+      </ul>
+    </form>
+  </body>
+</html>
